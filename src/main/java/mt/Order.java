@@ -10,12 +10,12 @@ import java.io.Serializable;
  * @author alc
  */
 
-
+//
 public class Order implements Serializable {
 	/**
 	 * Nickname of the client who issued the order.
 	 */
-	private String   nickname;
+	private String   nickname1;
 	
 	/**
 	 * The name of the stock.
@@ -76,7 +76,7 @@ public class Order implements Serializable {
 			) {
 		super();
 	
-		this.nickname      = nickname;
+		this.nickname1      = nickname;
 		this.stock         = stock;
 		this.numberOfUnits = numberOfUnits;
 		this.pricePerUnit  = pricePerUnit;
@@ -92,7 +92,7 @@ public class Order implements Serializable {
 	}
 
 	public String getNickname() {
-		return nickname;
+		return nickname1;
 	}
 
 	public String getStock() {
@@ -120,7 +120,7 @@ public class Order implements Serializable {
 	}
 	
 	public String toString() {
-		return (isSellOrder() ? "sell" : "buy") + " " + stock + ", " + numberOfUnits + " units at " + pricePerUnit + " EUR/unit (nickname: " + nickname + ", serverID: " + serverOrderID + ")"; 
+		return (isSellOrder() ? "sell" : "buy") + " " + stock + ", " + numberOfUnits + " units at " + pricePerUnit + " EUR/unit (nickname: " + nickname1 + ", serverID: " + serverOrderID + ")"; 
 	}
 	
 	/**
@@ -132,7 +132,7 @@ public class Order implements Serializable {
 	public boolean equals(Object obj) {
 		if(obj instanceof Order){
 			Order o = (Order) obj;
-			return o.getNickname().equals(nickname) && o.getNumberOfUnits() == numberOfUnits && o.getPricePerUnit() == pricePerUnit && o.getStock().equals(stock);
+			return o.getNickname().equals(nickname1) && o.getNumberOfUnits() == numberOfUnits && o.getPricePerUnit() == pricePerUnit && o.getStock().equals(stock);
 		}
 		return super.equals(obj);
 	}
