@@ -24,7 +24,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class MicroServerTest {
 	
 	private MicroServer ms;
-	
+		 
 	@Mock
 	private ServerComm serverComm;
 	
