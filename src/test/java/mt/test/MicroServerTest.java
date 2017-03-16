@@ -19,7 +19,7 @@ import org.mockito.runners.MockitoJUnitRunner;
  * Test Class for MicroServer
  *
  */
-
+//acrescentar uma alteração
 @RunWith(MockitoJUnitRunner.class)
 public class MicroServerTest {
 	
