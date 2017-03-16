@@ -71,7 +71,7 @@ public class Order implements Serializable {
 		return new Order(nickname, false, stock, numberOfUnits, pricePerUnit);
 	}
 	
-	
+	//Demonstração ES2
 	private Order(String nickname, boolean isBuyOrder, String stock, int numberOfUnits, double pricePerUnit
 			) {
 		super();
