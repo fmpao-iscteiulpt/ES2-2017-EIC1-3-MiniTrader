@@ -22,7 +22,7 @@ import mt.server.MicroServer;
  * Test Class for MicroServer
  *
  */
-// acrescentar uma altera��o
+// 
 @RunWith(MockitoJUnitRunner.class)
 public class MicroServerTest {
 
