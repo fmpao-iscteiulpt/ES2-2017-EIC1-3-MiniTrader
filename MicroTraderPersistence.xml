@@ -7,4 +7,7 @@
 <Order Id="1" Price="5555" Stock="olaaaaa" Type="Buy" Units="222"/>
 <Order Id="2" Price="2" Stock="l" Type="Sell" Units="1"/>
 <Order Id="1" Price="3" Stock="bananas" Type="Buy" Units="1"/>
+<Order Id="1" Price="3" Stock="bananas2" Type="Buy" Units="1"/>
+<Order Id="1" Price="3" Stock="bananas3" Type="Buy" Units="1"/>
+
 </XML>
