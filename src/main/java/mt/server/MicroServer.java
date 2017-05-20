@@ -331,7 +331,7 @@ public class MicroServer implements MicroTraderServer {
 
 			// Create new element Order with attributes
 			Element newElement = doc.createElement("Order");
-			newElement.setAttribute("Id", Integer.toString(orderXML.getServerOrderID()));
+			//newElement.setAttribute("Id", Integer.toString(orderXML.getServerOrderID()));
 			if (orderXML.isBuyOrder() == true) {
 				newElement.setAttribute("Type", "Buy");
 			} else if (orderXML.isSellOrder() == true) {
