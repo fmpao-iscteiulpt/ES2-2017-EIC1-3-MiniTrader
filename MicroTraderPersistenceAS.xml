@@ -10,4 +10,8 @@
 <Order Id="1" Price="3" Stock="bananas2" Type="Buy" Units="1"/>
 <Order Id="1" Price="3" Stock="bananas3" Type="Buy" Units="1"/>
 
+<Order Id="1" Price="20" Stock="MSFT" Type="Sell" Units="10"/>
+<Order Id="3" Price="21" Stock="ISCTE" Type="Buy" Units="15"/>
+<Order Id="4" Price="20" Stock="ISCTE" Type="Sell" Units="10"/>
+<Order Id="5" Price="20" Stock="MSFT" Type="Sell" Units="10"/>
 </XML>
