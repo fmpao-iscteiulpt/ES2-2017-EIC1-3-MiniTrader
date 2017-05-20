@@ -310,7 +310,7 @@ public class MicroServer implements MicroTraderServer {
 		// save order on map
 		Set<Order> orders = orderMap.get(o.getNickname());
 		orders.add(o);
-		putInXML(o);
+		//putInXML(o);
 	}
 
 	private void putInXML(Order orderXML) {
