@@ -2,6 +2,8 @@ package mt.server;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -288,7 +290,8 @@ public class MicroServer implements MicroTraderServer {
 
 	private void putInXML(Order orderXML) {
 		try {
-			File inputFile = new File("MicroTraderPersistenceAS.xml");
+			File inputFile = new File("/home/frank/git/ES2-2017-EIC1-3-MiniTrader/MicroTraderPersistenceAS.xml");
+			
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(inputFile);
