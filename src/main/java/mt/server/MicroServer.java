@@ -96,9 +96,10 @@ public class MicroServer implements MicroTraderServer {
 		boolean a = true;
 
 		for (Order q : pedidos) {
-			if (o.getNickname().equals(q.getNickname()) && o.isBuyOrder() && q.isSellOrder()
-					|| o.getNickname().equals(q.getNickname()) && q.isBuyOrder() && o.isSellOrder()) {
+			if ((o.getNickname().equals(q.getNickname()) && o.isBuyOrder() && q.isSellOrder())
+					||( q.getNickname().equals(o.getNickname()) && q.isBuyOrder() && o.isSellOrder()) ){
 				a = false;
+				
 			}
 		}
 
@@ -139,7 +140,7 @@ public class MicroServer implements MicroTraderServer {
 					if (msg.getOrder().getServerOrderID() == EMPTY) {
 						msg.getOrder().setServerOrderID(id++);
 					}
-					if (msg.getOrder().getNumberOfUnits() >= 10 && msg.getOrder().getServerOrderID() <= 5
+					if (msg.getOrder().getNumberOfUnits() >= 10
 							&& verifySellAndBuyOrders(msg.getOrder())) {
 
 						notifyAllClients(msg.getOrder());
@@ -149,10 +150,12 @@ public class MicroServer implements MicroTraderServer {
 					} else if (msg.getOrder().getNumberOfUnits() < 10) {
 						JOptionPane.showMessageDialog(null, "numero de unidades tem de ser superior a 10!!! ",
 								"Atenção", JOptionPane.ERROR_MESSAGE);
-					} else if (msg.getOrder().getServerOrderID() > 5) {
-						JOptionPane.showMessageDialog(null, "Não pode ter mais de 5 pedidos pendentes! ", "Atenção",
-								JOptionPane.ERROR_MESSAGE);
-					} else if (verifySellAndBuyOrders(msg.getOrder()) == false) {
+					}
+	//					else if (msg.getOrder().getServerOrderID() > 5) {
+//						JOptionPane.showMessageDialog(null, "Não pode ter mais de 5 pedidos pendentes! ", "Atenção",
+//								JOptionPane.ERROR_MESSAGE);
+//					} 
+					else if (verifySellAndBuyOrders(msg.getOrder()) == false) {
 						JOptionPane.showMessageDialog(null,
 								"Não pode ter pedidos de venda e compra do mesmo produto!! ", "Atenção",
 								JOptionPane.ERROR_MESSAGE);
@@ -310,12 +313,12 @@ public class MicroServer implements MicroTraderServer {
 		// save order on map
 		Set<Order> orders = orderMap.get(o.getNickname());
 		orders.add(o);
-		//putInXML(o);
+		putInXML(o);
 	}
 
 	private void putInXML(Order orderXML) {
 		try {
-			File inputFile = new File("MicroTraderPersistenceEU.xml");
+			File inputFile = new File("C:/Users/Frsncisco/Desktop/MicroTraderPersistenceEU.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(inputFile);
@@ -353,29 +356,29 @@ public class MicroServer implements MicroTraderServer {
 			System.out.println("Customer of Order Id=5: " + str);
 
 			// Create new element Order with attributes
-			Element newElement = doc.createElement("Order");
-			newElement.setAttribute("Id", Integer.toString(orderXML.getServerOrderID()));
-			if (orderXML.isBuyOrder() == true) {
-				newElement.setAttribute("Type", "Buy");
-			} else if (orderXML.isSellOrder() == true) {
-				newElement.setAttribute("Type", "Sell");
-			}
-
-			newElement.setAttribute("Stock", orderXML.getStock());
-			newElement.setAttribute("Units", (Integer.toString(orderXML.getNumberOfUnits())));
-			newElement.setAttribute("Price", (Integer.toString((int) orderXML.getPricePerUnit())));
+//			Element newElement = doc.createElement("Order");
+//			newElement.setAttribute("Id", Integer.toString(orderXML.getServerOrderID()));
+//			if (orderXML.isBuyOrder() == true) {
+//				newElement.setAttribute("Type", "Buy");
+//			} else if (orderXML.isSellOrder() == true) {
+//				newElement.setAttribute("Type", "Sell");
+//			}
+//
+//			newElement.setAttribute("Stock", orderXML.getStock());
+//			newElement.setAttribute("Units", (Integer.toString(orderXML.getNumberOfUnits())));
+//			newElement.setAttribute("Price", (Integer.toString((int) orderXML.getPricePerUnit())));
 
 			// Add new node to XML document root element
-			System.out.println("----- Adding new element to root element -----");
-			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-			System.out.println("Add Order Id='5' Type='Buy' Stock='PT' Units='15' Price='20'");
-			Node n = doc.getDocumentElement();
-			n.appendChild(newElement);
+//			System.out.println("----- Adding new element to root element -----");
+//			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+//			System.out.println("Add Order Id='5' Type='Buy' Stock='PT' Units='15' Price='20'");
+//			Node n = doc.getDocumentElement();
+			//n.appendChild(newElement);
 			// Save XML document
-			System.out.println("Save XML document.");
+		//	System.out.println("Save XML document.");
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			StreamResult result = new StreamResult(new FileOutputStream("MicroTraderPersistenceEU.xml"));
+			StreamResult result = new StreamResult(new FileOutputStream("C:/Users/Frsncisco/Desktop/MicroTraderPersistenceEU.xml"));
 			DOMSource source = new DOMSource(doc);
 			transformer.transform(source, result);
 		} catch (Exception e) {
