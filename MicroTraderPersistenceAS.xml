@@ -1,17 +1,3 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <XML>
-<Order Id="5" Price="20" Stock="PT" Type="Buy" Units="15"/>
-<Order Id="5" Price="20" Stock="PT" Type="Buy" Units="15"/>
-<Order Id="5" Price="333" Stock="olas" Type="Buy" Units="2222"/>
-<Order Id="5" Price="333" Stock="eeeeee" Type="Sell" Units="222"/>
-<Order Id="1" Price="5555" Stock="olaaaaa" Type="Buy" Units="222"/>
-<Order Id="2" Price="2" Stock="l" Type="Sell" Units="1"/>
-<Order Id="1" Price="3" Stock="bananas" Type="Buy" Units="1"/>
-<Order Id="1" Price="3" Stock="bananas2" Type="Buy" Units="1"/>
-<Order Id="1" Price="3" Stock="bananas3" Type="Buy" Units="1"/>
-
-<Order Id="1" Price="20" Stock="MSFT" Type="Sell" Units="10"/>
-<Order Id="3" Price="21" Stock="ISCTE" Type="Buy" Units="15"/>
-<Order Id="4" Price="20" Stock="ISCTE" Type="Sell" Units="10"/>
-<Order Id="5" Price="20" Stock="MSFT" Type="Sell" Units="10"/>
 </XML>
