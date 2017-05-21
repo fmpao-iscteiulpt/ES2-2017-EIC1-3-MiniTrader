@@ -290,7 +290,7 @@ public class MicroServer implements MicroTraderServer {
 
 	private void putInXML(Order orderXML) {
 		try {
-			File inputFile = new File("/home/frank/git/ES2-2017-EIC1-3-MiniTrader/MicroTraderPersistenceAS.xml");
+			File inputFile = new File("MicroTraderPersistenceAS.xml");
 			
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -354,7 +354,7 @@ public class MicroServer implements MicroTraderServer {
 			System.out.println("Save XML document.");
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			StreamResult result = new StreamResult(new FileOutputStream("MicroTraderPersistenceAS.xml"));
+			StreamResult result = new StreamResult(new FileOutputStream("/home/frank/git/ES2-2017-EIC1-3-MiniTrader/MicroTraderPersistenceAS.xml"));
 			DOMSource source = new DOMSource(doc);
 			transformer.transform(source, result);
 		} catch (Exception e) {
