@@ -124,17 +124,17 @@ public class MicroServer implements MicroTraderServer {
 					if (msg.getOrder().getServerOrderID() == EMPTY) {
 						msg.getOrder().setServerOrderID(id++);
 					}
-					if (msg.getOrder().getNumberOfUnits() >= 10 && msg.getOrder().getServerOrderID() <= 5) {
-
+					if (msg.getOrder().getNumberOfUnits() >= 10){
 						notifyAllClients(msg.getOrder());
 						processNewOrder(msg);
 					} else if (msg.getOrder().getNumberOfUnits() < 10) {
 						JOptionPane.showMessageDialog(null, "numero de unidades tem de ser superior a 10!!! ",
 								"Atenção", JOptionPane.ERROR_MESSAGE);
-					} else if( msg.getOrder().getServerOrderID() > 5 ) {
-						JOptionPane.showMessageDialog(null, "Não pode ter mais de 5 pedidos pendentes! ", "Atenção",
-								JOptionPane.ERROR_MESSAGE);
-					}
+					} 
+//					else if( msg.getOrder().getServerOrderID() > 5 ) {
+//						JOptionPane.showMessageDialog(null, "Não pode ter mais de 5 pedidos pendentes! ", "Atenção",
+//								JOptionPane.ERROR_MESSAGE);
+//					}
 				} catch (ServerException e) {
 					serverComm.sendError(msg.getSenderNickname(), e.getMessage());
 				}
@@ -292,7 +292,7 @@ public class MicroServer implements MicroTraderServer {
 
 	private void putInXML(Order orderXML) {
 		try {
-			File inputFile = new File("MicroTraderPersistenceUS.xml");
+			File inputFile = new File("C:/Users/Frsncisco/Desktop/MicroTraderPersistenceUS.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(inputFile);
@@ -352,7 +352,7 @@ public class MicroServer implements MicroTraderServer {
 			System.out.println("Save XML document.");
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			StreamResult result = new StreamResult(new FileOutputStream("MicroTraderPersistenceUS.xml"));
+			StreamResult result = new StreamResult(new FileOutputStream("C:/Users/Frsncisco/Desktop/MicroTraderPersistenceUS.xml"));
 			DOMSource source = new DOMSource(doc);
 			transformer.transform(source, result);
 		} catch (Exception e) {
